@@ -1,0 +1,14 @@
+<div>
+<p>
+listadequehacer!
+</p>
+<inpu type="text" #inputBusquedaExacta>
+  <button (click)="buscarExacto(iputBsuquedaExacta.value): ;"> Busqueda Exacto </button>
+</div>
+<input (keyup.enter)="addOneToDo(inputDeTexto.value); inputDeTexto.value = ''" type="text" #inputDeTexto >
+<button (click)="addOneToDo(inputDeTexto.value); inputDeTexto.value = ''"> Agregar Nuevo Elemento </button>
+<div *ngFor="let todo of listaToDos; let andex = index">
+  <input type="checkbox" [checked]="todo.done" (change)="changeTodoStatus($event, andex)">
+  <span> {{ todo.text }} </span>
+  <button (click)="deletOne(andex)"> X </button> 
+</div>
